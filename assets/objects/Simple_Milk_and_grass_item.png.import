@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lltkiyj1vrro"
-path="res://.godot/imported/Simple_Milk_and_grass_item.png-4ec2a39e2219378df5f36151e3d1317f.ctex"
+uid="uid://dvapkwbtn0fgt"
+path="res://.godot/imported/Simple Milk and grass item.png-aa8b6580fca877f07d02ea6da287bbd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/Simple_Milk_and_grass_item.png"
-dest_files=["res://.godot/imported/Simple_Milk_and_grass_item.png-4ec2a39e2219378df5f36151e3d1317f.ctex"]
+source_file="res://assets/objects/Simple Milk and grass item.png"
+dest_files=["res://.godot/imported/Simple Milk and grass item.png-aa8b6580fca877f07d02ea6da287bbd4.ctex"]
 
 [params]
 
