@@ -12,9 +12,6 @@ func _on_process(_delta : float) -> void:
 func _on_physics_process(_delta : float) -> void:
 	var direction: Vector2 = GameInputEvents.movement_input()
 	
-	# Сохраняем старую позицию
-	var old_position = player.position
-	
 	if direction == Vector2.UP:
 		animated_sprite_2d.play("walk_back")
 	elif direction == Vector2.DOWN:
@@ -26,6 +23,18 @@ func _on_physics_process(_delta : float) -> void:
 		
 	player.velocity = direction * speed
 	player.move_and_slide()
+
+	# ДИАГНОСТИКА
+	#print("Direction: ", direction)
+	#print("Speed: ", speed)
+	#
+	#print("Velocity установлена: ", player.velocity)
+	#
+	#var collision = player.move_and_slide()
+	#print("move_and_slide вернул: ", collision)
+	#
+	#print("Позиция после move_and_slide: ", player.position)
+	#print("---")
 
 
 func _on_next_transitions() -> void:

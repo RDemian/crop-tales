@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://cv8hkclmckghg" path="res://scenes/characters/player/idle_state.gd" id="4_hss88"]
 [ext_resource type="Script" uid="uid://c77vxoweotmx0" path="res://scenes/characters/player/walk_state.gd" id="5_qd3e3"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kghjy"]
+radius = 8.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hss88"]
 atlas = ExtResource("1_t61fv")
 region = Rect2(0, 240, 48, 48)
@@ -389,22 +392,19 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kghjy"]
-radius = 8.0
-
 [node name="Player" type="Node2D" unique_id=435828386]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1850038394]
-position = Vector2(0, -8)
-sprite_frames = SubResource("SpriteFrames_omk8d")
-animation = &"walk_back"
-autoplay = "idle_front"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=425686746]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=305505985]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_kghjy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1850038394]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_omk8d")
+animation = &"walk_back"
+autoplay = "idle_front"
 
 [node name="StateMachine" type="Node" parent="." unique_id=1394681644 node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_686vu")
@@ -413,9 +413,9 @@ initial_node_state = NodePath("Idle")
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1475025393 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("4_hss88")
 player = NodePath("../../CharacterBody2D")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+animated_sprite_2d = NodePath("../../CharacterBody2D/AnimatedSprite2D")
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=1195928411 node_paths=PackedStringArray("player", "animated_sprite_2d")]
 script = ExtResource("5_qd3e3")
 player = NodePath("../../CharacterBody2D")
-animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+animated_sprite_2d = NodePath("../../CharacterBody2D/AnimatedSprite2D")

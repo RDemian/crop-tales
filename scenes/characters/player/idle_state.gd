@@ -22,7 +22,6 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite_2d.play("idle_right")
 		
 		
-
 func _on_next_transitions() -> void:
 	if GameInputEvents.is_movement_input():
 		transition.emit("Walk")
