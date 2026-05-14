@@ -10,7 +10,7 @@ func _on_process(_delta : float) -> void:
 
 
 func _on_physics_process(_delta : float) -> void:
-	direction = GameInputEvents.movement_input()
+	direction = GameInputEvents.last_direction
 
 	if direction == Vector2.UP:
 		animated_sprite_2d.play("idle_back")
@@ -20,6 +20,8 @@ func _on_physics_process(_delta : float) -> void:
 		animated_sprite_2d.play("idle_left")
 	elif direction == Vector2.RIGHT:
 		animated_sprite_2d.play("idle_right")
+	else:
+		animated_sprite_2d.play("idle_front")
 		
 		
 func _on_next_transitions() -> void:
@@ -31,4 +33,4 @@ func _on_enter() -> void:
 
 
 func _on_exit() -> void:
-	pass
+	animated_sprite_2d.stop()

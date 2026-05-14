@@ -1,6 +1,7 @@
 class_name GameInputEvents
 
 static var direction ## static - переменная класса, общая для экземпляров
+static var last_direction: Vector2 = Vector2.ZERO
 
 static func movement_input() -> Vector2:
 	if Input.is_action_pressed("walk_left"):
@@ -13,9 +14,15 @@ static func movement_input() -> Vector2:
 		direction = Vector2.DOWN
 	else:
 		direction = Vector2.ZERO
+	
+	if (direction != Vector2.ZERO):
+		last_direction = direction
+		
 	return direction
 	
 static func is_movement_input() -> bool:
+	movement_input()
+	
 	if direction == Vector2.ZERO:
 		return false
 	else:
