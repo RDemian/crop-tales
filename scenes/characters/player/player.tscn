@@ -10,9 +10,6 @@
 [ext_resource type="Script" uid="uid://bre0gm0ndkl3i" path="res://scenes/characters/player/tilling_state.gd" id="8_xuses"]
 [ext_resource type="Script" uid="uid://binj6ys87qsj1" path="res://scenes/characters/player/watering_state.gd" id="9_42irl"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kghjy"]
-radius = 8.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hss88"]
 atlas = ExtResource("1_t61fv")
 region = Rect2(0, 240, 48, 48)
@@ -396,21 +393,25 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kghjy"]
+radius = 5.0
+
 [node name="Player" type="Node2D" unique_id=435828386]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=425686746]
+collision_layer = 2
 script = ExtResource("1_mk55u")
 current_tool = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=305505985]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_kghjy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1850038394]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_omk8d")
-animation = &"walk_front"
+animation = &"walk_right"
 autoplay = "idle_front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=305505985]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_kghjy")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1394681644 node_paths=PackedStringArray("initial_node_state")]
 script = ExtResource("3_686vu")
